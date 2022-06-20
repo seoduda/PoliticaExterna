@@ -8,10 +8,12 @@ SocialSecurityPage
                                                       CommandParameter ="{Binding ProposedCode}"  Clicked="OnCallExtratoPrevidenciaClick"  />
 
 
-
-var s = (Button)sender;
-            int proposalNumber = 0;
-            if (s.CommandParameter!= null)
-                proposalNumber = (int)s.CommandParameter;
-
-            await Navigation.PushAsync(new SocialSecurityStatementPage(GetPlan(proposalNumber)), true);;
+ var s = (Button)sender;
+            int proposalNumber = s.CommandParameter != null ? (int)s.CommandParameter : 0;
+            if (proposalNumber > 0)
+            {
+                await Navigation.PushAsync(new SocialSecurityStatementPage(GetPlan(proposalNumber)), true); ;
+            }
+            else{
+                 Toast("Erro ao acessar dados, favor tentar novamente mais tarde");
+            }
