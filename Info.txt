@@ -1,19 +1,8 @@
-revisão 1.1
-
-
-SocialSecurityPage
-
-
-                                            <Button Text="CONTINUAR" TextColor="White" FontSize="12" FontAttributes="Bold" BackgroundColor="#C9920E" Margin="20,10" HeightRequest="40"
-                                                      CommandParameter ="{Binding ProposedCode}"  Clicked="OnCallExtratoPrevidenciaClick"  />
-
-
- var s = (Button)sender;
-            int proposalNumber = s.CommandParameter != null ? (int)s.CommandParameter : 0;
-            if (proposalNumber > 0)
-            {
-                await Navigation.PushAsync(new SocialSecurityStatementPage(GetPlan(proposalNumber)), true); ;
-            }
-            else{
-                 Toast("Erro ao acessar dados, favor tentar novamente mais tarde");
-            }
+revisão 1.2
+curl --location --request GET 'https://apih.alfaserv.com.br/banco-alfa/canal-servicos/cms/slug/termos-de-uso' \
+--header 'Accept: application/json' \
+--header 'x-ibm-client-id: 262af628-baca-4225-bf09-a8fdc3b2fa87' \
+--header 'Codigo-Origem: 2' \
+--header 'Nome-Aplicativo: APP-BANCO' \
+--header 'App-Version: 2.0.16.a' \
+--header 'System: Android'
